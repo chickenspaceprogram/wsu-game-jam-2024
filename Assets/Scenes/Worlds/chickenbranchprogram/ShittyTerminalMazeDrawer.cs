@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 public class ShittyTerminalMazeDrawer {
     public static void Main(string[] args) {
-        int row = 10;
-        int col = 10;
+        int row = 15;
+        int col = 15;
         Random rng = new Random();
         Cell st = new Cell(1, 1);
         MazeGen mgen = new MazeGen();
@@ -33,8 +33,13 @@ public class ShittyTerminalMazeDrawer {
     }
     private static void PrintLeftRight(Maze maze, int row_num, int max_col) {
         Cell cell = new Cell(row_num, 0);
-        Console.Write("|");
-        for (int i = 0; i < max_col; ++i) {
+        if (maze.CellHasWall(cell, Direction.Left)) {
+            Console.Write("|");
+        }
+        else {
+            Console.Write(" ");
+        }
+        for (int i = 1; i < max_col; ++i) {
             cell.SetCol(i);
             if (maze.CellHasWall(cell, Direction.Left)) {
                 Console.Write("   |");
@@ -42,6 +47,12 @@ public class ShittyTerminalMazeDrawer {
             else {
                 Console.Write("    ");
             }
+        }
+        if (maze.CellHasWall(cell, Direction.Right)) {
+            Console.Write("   |");
+        }
+        else {
+            Console.Write("    ");
         }
         Console.Write("\n");
     }
