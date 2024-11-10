@@ -132,39 +132,4 @@ public class Maze {
             throw new ArgumentOutOfRangeException("Cell is out of bounds.");
         }
     }
-
-    public void PrintVals() {
-        for (int i = 0; i < rows; ++i) {
-            for (int j = 0; j < cols; ++j) {
-                if (visited_cells[i, j]) {
-                    Console.Write("V ");
-                }
-                else {
-                    Console.Write("N ");
-                }
-            }
-            Console.Write("\n");
-        }
-    }
-
-    public void PrintCell(Cell cell) {
-        if (up_wall[cell.GetRow(), cell.GetCol()]) {
-            Console.Write("+---+");
-        }
-        Console.Write("\n");
-        if (left_wall[cell.GetRow(), cell.GetCol()]) {
-            Console.Write("|");
-        }
-        else {
-            Console.Write(" ");
-        }
-        if (right_wall[cell.GetRow(), cell.GetCol()]) {
-            Console.Write("   |");
-        }
-        Console.Write("\n");
-        if (down_wall[cell.GetRow(), cell.GetCol()]) {
-            Console.Write("+---+");
-        }
-        Console.Write("\n\n");
-    }
 }

@@ -6,10 +6,9 @@ public class ShittyTerminalMazeDrawer {
         int row = 15;
         int col = 15;
         Random rng = new Random();
-        Cell st = new Cell(1, 1);
+        Cell st = new Cell(0, 0);
         MazeGen mgen = new MazeGen();
         Maze aMAZEing = mgen.Gen(rng, row, col, st);
-        aMAZEing.PrintVals();
         for (int i = 0; i < row; ++i) {
             PrintUpDown(aMAZEing, i, Direction.Up, col);
             PrintLeftRight(aMAZEing, i, col);

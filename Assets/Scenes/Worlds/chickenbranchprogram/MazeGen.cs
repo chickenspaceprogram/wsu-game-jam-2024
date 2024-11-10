@@ -22,13 +22,6 @@ public class MazeGen {
                 maze.Visit(next_cell);
                 maze.BreakWall(current_cell, next_dir);
                 stack.Push(next_cell);
-                Console.Write("current: row: " + current_cell.GetRow().ToString() + " col: " + current_cell.GetCol().ToString() + "\n\n");
-                Console.Write("direction: " + next_dir.ToString("D") + "\n");
-                Console.Write("next: row: " + next_cell.GetRow().ToString() + " col: " + next_cell.GetCol().ToString() + "\n");
-                Console.WriteLine("Current Cell:");
-                maze.PrintCell(current_cell);
-                Console.WriteLine("Next Cell");
-                maze.PrintCell(next_cell);
             }
         }
         return maze;
