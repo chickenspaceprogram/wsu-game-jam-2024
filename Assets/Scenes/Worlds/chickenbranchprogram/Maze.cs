@@ -54,7 +54,7 @@ public class Maze {
     public bool HasVisited(int row, int col) {
         Cell cell = new Cell(row, col);
         CheckBounds(cell);
-        return visited_cells[cell.GetRow(), cell.GetCol()];
+        return visited_cells[row, col];
     }
 
     public void BreakWall(Cell cell, Direction direction) {
@@ -130,6 +130,20 @@ public class Maze {
     public void CheckBounds(Cell cell) {
         if (cell.GetRow() >= rows || cell.GetRow() < 0 || cell.GetCol() >= cols || cell.GetCol() < 0) {
             throw new ArgumentOutOfRangeException("Cell is out of bounds.");
+        }
+    }
+
+    public void PrintVals() {
+        for (int i = 0; i < rows; ++i) {
+            for (int j = 0; j < cols; ++j) {
+                if (visited_cells[i, j]) {
+                    Console.Write("V ");
+                }
+                else {
+                    Console.Write("N ");
+                }
+            }
+            Console.Write("\n");
         }
     }
 }

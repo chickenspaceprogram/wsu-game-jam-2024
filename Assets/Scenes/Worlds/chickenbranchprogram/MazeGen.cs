@@ -20,9 +20,12 @@ public class MazeGen {
                 Direction next_dir = PickUnvisitedNeighbor(current_cell);
                 next_cell = GetNextCell(current_cell, next_dir);
                 maze.Visit(next_cell);
+                Console.Write("direction: " + next_dir.ToString("D") + "\n");
+                Console.Write("next: row: " + next_cell.GetRow().ToString() + " col: " + next_cell.GetCol().ToString() + "\n");
                 maze.BreakWall(current_cell, next_dir);
                 stack.Push(next_cell);
             }
+            Console.Write("current: row: " + current_cell.GetRow().ToString() + " col: " + current_cell.GetCol().ToString() + "\n\n");
         }
         return maze;
     }
@@ -30,28 +33,28 @@ public class MazeGen {
     private bool HasUnvisitedNeighbors(Cell cell) {
 
         try {
-            if (maze.HasVisited(cell.GetRow() - 1, cell.GetCol())) {
+            if (!maze.HasVisited(cell.GetRow() - 1, cell.GetCol())) {
                 return true;
             }
         }
         catch (ArgumentOutOfRangeException) {}
 
         try {
-            if (maze.HasVisited(cell.GetRow() + 1, cell.GetCol())) {
+            if (!maze.HasVisited(cell.GetRow() + 1, cell.GetCol())) {
                 return true;
             }
         }
         catch (ArgumentOutOfRangeException) {}
 
         try {
-            if (maze.HasVisited(cell.GetRow(), cell.GetCol() - 1)) {
+            if (!maze.HasVisited(cell.GetRow(), cell.GetCol() - 1)) {
                 return true;
             }
         }
         catch (ArgumentOutOfRangeException) {}
 
         try {
-            if (maze.HasVisited(cell.GetRow(), cell.GetCol() + 1)) {
+            if (!maze.HasVisited(cell.GetRow(), cell.GetCol() + 1)) {
                 return true;
             }
         }
@@ -101,24 +104,20 @@ public class MazeGen {
     }
 
     private Cell GetNextCell(Cell current, Direction dir) {
-        Cell cell;
+        Cell next = new Cell(current.GetRow(), current.GetCol());
         switch (dir) {
             case Direction.Left:
-                cell = new Cell(current.GetRow() - 1, current.GetCol());
-                maze.CheckBounds(cell);
-                return cell;
+                next.SetCol(current.GetCol() - 1);
+                return next;
             case Direction.Right:
-                cell = new Cell(current.GetRow() + 1, current.GetCol());
-                maze.CheckBounds(cell);
-                return cell;
+                next.SetCol(current.GetCol() + 1);
+                return next;
             case Direction.Up:
-                cell = new Cell(current.GetRow(), current.GetCol() - 1);
-                maze.CheckBounds(cell);
-                return cell;
+                next.SetRow(current.GetRow() - 1);
+                return next;
             case Direction.Down:
-                cell = new Cell(current.GetRow() + 1, current.GetCol());
-                maze.CheckBounds(cell);
-                return cell;
+                next.SetRow(current.GetRow() + 1);
+                return next;
         }
         throw new ArgumentException("direction is somehow invalid. ya dun fucked up. skill issue.");
     }

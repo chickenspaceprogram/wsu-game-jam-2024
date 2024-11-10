@@ -14,4 +14,12 @@ public class Cell {
     public int GetCol() {
         return col;
     }
+
+    public void SetRow(int cell_row) {
+        row = cell_row;
+    }
+
+    public void SetCol(int cell_col) {
+        col = cell_col;
+    }
 }
