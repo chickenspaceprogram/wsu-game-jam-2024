@@ -105,8 +105,8 @@ public class Maze {
                     throw new InvalidOperationException("Wall has already been broken.");
                 }
 
-                up_wall[cell.GetRow(), cell.GetCol()] = false;
-                down_wall[cell.GetRow() + 1, cell.GetCol()] = false;
+                up_wall[cell.GetRow() + 1, cell.GetCol()] = false;
+                down_wall[cell.GetRow(), cell.GetCol()] = false;
                 break;
         }
     }
@@ -145,5 +145,26 @@ public class Maze {
             }
             Console.Write("\n");
         }
+    }
+
+    public void PrintCell(Cell cell) {
+        if (up_wall[cell.GetRow(), cell.GetCol()]) {
+            Console.Write("+---+");
+        }
+        Console.Write("\n");
+        if (left_wall[cell.GetRow(), cell.GetCol()]) {
+            Console.Write("|");
+        }
+        else {
+            Console.Write(" ");
+        }
+        if (right_wall[cell.GetRow(), cell.GetCol()]) {
+            Console.Write("   |");
+        }
+        Console.Write("\n");
+        if (down_wall[cell.GetRow(), cell.GetCol()]) {
+            Console.Write("+---+");
+        }
+        Console.Write("\n\n");
     }
 }

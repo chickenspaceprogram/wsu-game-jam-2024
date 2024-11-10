@@ -3,18 +3,18 @@ using System.Collections.Generic;
 
 public class ShittyTerminalMazeDrawer {
     public static void Main(string[] args) {
-        int row = 2;
-        int col = 2;
+        int row = 10;
+        int col = 10;
         Random rng = new Random();
         Cell st = new Cell(1, 1);
         MazeGen mgen = new MazeGen();
-        Maze aMAZEing = mgen.Gen(rng, 10, 10, st);
+        Maze aMAZEing = mgen.Gen(rng, row, col, st);
         aMAZEing.PrintVals();
-        //for (int i = 0; i < row; ++i) {
-        //    PrintUpDown(aMAZEing, i, Direction.Left, col);
-        //    PrintLeftRight(aMAZEing, i, col);
-        //}
-        //PrintUpDown(aMAZEing, row - 1, Direction.Down, col);
+        for (int i = 0; i < row; ++i) {
+            PrintUpDown(aMAZEing, i, Direction.Up, col);
+            PrintLeftRight(aMAZEing, i, col);
+        }
+        PrintUpDown(aMAZEing, row - 1, Direction.Down, col);
     }
 
     private static void PrintUpDown(Maze maze, int row_num, Direction dir, int max_col) {
