@@ -73,7 +73,7 @@ public class Maze {
                 right_wall[cell.GetRow(), cell.GetCol() - 1] = false;
                 break;
             case Direction.Right:
-                if (cell.GetCol() == cols) {
+                if (cell.GetCol() == cols - 1) {
                     throw new ArgumentOutOfRangeException("Invalid cell and direction, wall cannot be broken.");
                 }
 
@@ -97,7 +97,7 @@ public class Maze {
                 down_wall[cell.GetRow() - 1, cell.GetCol()] = false;
                 break;
             case Direction.Down:
-                if (cell.GetRow() == rows) {
+                if (cell.GetRow() == rows - 1) {
                     throw new ArgumentOutOfRangeException("Invalid cell and direction, wall cannot be broken.");
                 }
 
