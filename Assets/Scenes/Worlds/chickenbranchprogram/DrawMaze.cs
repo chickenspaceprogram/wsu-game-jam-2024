@@ -46,29 +46,30 @@ public class DrawMaze : MonoBehaviour
             }
         }
         PrintCorners();
+        PrintOuterWalls();
     }
 
     public void DrawWalls(Cell cell) {
         Vector3 cell_coords = GetCellCoords(cell);
-        if (maze.CellHasWall(cell, Direction.Left)) {
+        if (maze.CellHasWall(cell, Direction.Left) && cell.GetCol() != 0) {
             GameObject c_u_b_e = GetCube();
             c_u_b_e.transform.position = cell_coords + left_offset;
             c_u_b_e.transform.localScale = vert_wall_size;
             c_u_b_e.name = "r" + cell.GetRow().ToString() + "c" + cell.GetCol().ToString() + "l";
         }
-        if (maze.CellHasWall(cell, Direction.Right)) {
+        if (maze.CellHasWall(cell, Direction.Right) && cell.GetCol() != (cols - 1)) {
             GameObject c_u_b_e = GetCube();
             c_u_b_e.transform.position = cell_coords + right_offset;
             c_u_b_e.transform.localScale = vert_wall_size;
             c_u_b_e.name = "r" + cell.GetRow().ToString() + "c" + cell.GetCol().ToString() + "r";
         }
-        if (maze.CellHasWall(cell, Direction.Up)) {
+        if (maze.CellHasWall(cell, Direction.Up) && cell.GetRow() != 0) {
             GameObject c_u_b_e = GetCube();
             c_u_b_e.transform.position = cell_coords + up_offset;
             c_u_b_e.transform.localScale = horiz_wall_size;
             c_u_b_e.name = "r" + cell.GetRow().ToString() + "c" + cell.GetCol().ToString() + "u";
         }
-        if (maze.CellHasWall(cell, Direction.Down)) {
+        if (maze.CellHasWall(cell, Direction.Down) && cell.GetRow() != rows - 1) {
             GameObject c_u_b_e = GetCube();
             c_u_b_e.transform.position = cell_coords + down_offset;
             c_u_b_e.transform.localScale = horiz_wall_size;
@@ -90,8 +91,8 @@ public class DrawMaze : MonoBehaviour
         GameObject cube;
         Vector3 pos = new Vector3();
         pos.y = first_cube_pos.y;
-        for (int i = 0; i < rows + 1; ++i) {
-            for (int j = 0; j < rows + 1; ++j) {
+        for (int i = 1; i < rows; ++i) {
+            for (int j = 1; j < rows; ++j) {
                 cube = GetCube();
                 pos.x = j * first_cube_size.x * (wall_len + 1) + first_cube_pos.x;
                 pos.z = i * first_cube_size.z * (wall_len + 1) + first_cube_pos.z;
@@ -99,5 +100,50 @@ public class DrawMaze : MonoBehaviour
                 cube.name = "corner-r" + i.ToString() + "c" + j.ToString();
             }
         }
+    }
+
+    public void PrintOuterWalls() {
+        GameObject up_wall = GetCube();
+        GameObject down_wall = GetCube();
+        GameObject left_wall = GetCube();
+        GameObject right_wall = GetCube();
+
+        float horiz_len = cols * wall_len * first_cube_size.z + (cols - 1) * first_cube_size.z;
+        float vert_len = rows * wall_len * first_cube_size.x + (rows - 1) * first_cube_size.x;
+
+        Vector3 vert_size = new Vector3(first_cube_size.x, first_cube_size.y, horiz_len);
+        Vector3 horiz_size = new Vector3(vert_len, first_cube_size.y, first_cube_size.z);
+
+        up_wall.transform.localScale = horiz_size;
+        down_wall.transform.localScale = horiz_size;
+        left_wall.transform.localScale = vert_size;
+        right_wall.transform.localScale = vert_size;
+
+        Vector3 up_pos = new Vector3(first_cube_pos.x + (horiz_len + first_cube_size.x) / 2, first_cube_pos.y, first_cube_pos.z);
+        Vector3 down_pos = new Vector3(first_cube_pos.x + (horiz_len + first_cube_size.x) / 2, first_cube_pos.y, first_cube_pos.z + vert_len + first_cube_size.z);
+        Vector3 left_pos = new Vector3(first_cube_pos.x, first_cube_pos.y, first_cube_pos.z + (vert_len + first_cube_size.z) / 2);
+        Vector3 right_pos = new Vector3(first_cube_pos.x + horiz_len + first_cube_size.x, first_cube_pos.y, first_cube_pos.z + (vert_len + first_cube_size.z) / 2);
+
+        up_wall.transform.position = up_pos;
+        down_wall.transform.position = down_pos;
+        left_wall.transform.position = left_pos;
+        right_wall.transform.position = right_pos;
+
+        up_wall.name = "up-wall";
+        down_wall.name = "down-wall";
+        left_wall.name = "left-wall";
+        right_wall.name = "right-wall";
+
+        GameObject up_corner = GetCube();
+        GameObject up_right_corner = GetCube();
+        GameObject right_corner = GetCube();
+
+        Vector3 uc_pos = new Vector3(first_cube_pos.x, first_cube_pos.y, first_cube_pos.z + vert_len + first_cube_size.z);
+        Vector3 urc_pos = new Vector3(first_cube_pos.x + horiz_len + first_cube_size.x, first_cube_pos.y, first_cube_pos.z + vert_len + first_cube_size.z);
+        Vector3 rc_pos = new Vector3(first_cube_pos.x + horiz_len + first_cube_size.x, first_cube_pos.y, first_cube_pos.z);
+
+        up_corner.transform.position = uc_pos;
+        up_right_corner.transform.position = urc_pos;
+        right_corner.transform.position = rc_pos;
     }
 }
