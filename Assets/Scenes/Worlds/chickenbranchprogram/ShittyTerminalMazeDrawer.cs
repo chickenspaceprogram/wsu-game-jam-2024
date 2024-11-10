@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 public class ShittyTerminalMazeDrawer {
     public static void Main(string[] args) {
-        int row = 15;
-        int col = 15;
+        int row = 10;
+        int col = 10;
         Random rng = new Random();
         Cell st = new Cell(0, 0);
         MazeGen mgen = new MazeGen();
