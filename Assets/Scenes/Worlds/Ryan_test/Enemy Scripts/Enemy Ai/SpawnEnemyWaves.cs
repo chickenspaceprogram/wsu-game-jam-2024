@@ -17,7 +17,7 @@ public class SpawnEnemyWaves : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (time > 2) 
+        if (time > 2  && GameObject.FindGameObjectsWithTag("Enemy").Length < 10) 
         {
             int ic = Random.Range(1, 3);
 

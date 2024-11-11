@@ -10,6 +10,8 @@ public class port_to_two : MonoBehaviour
 
     private void Start()
     {
+        GameObject.Find("Lantern").GetComponent<Shotgun>().enabled = false;
+        GameObject.Find("Lantern_follower").GetComponent<Shotgun>().enabled = true;
         GameObject.Find("RedCamera").GetComponent<Camera>().enabled = false;
         Quaternion qc = GameObject.Find("RedCamera").transform.rotation;
         qc.x = 0;
@@ -46,6 +48,9 @@ public class port_to_two : MonoBehaviour
 
             ln.transform.localPosition = new Vector3(-0.53f, -0.25f, 0.82f);
             ln.transform.localRotation = Quaternion.identity;
+
+            GameObject.Find("Lantern").GetComponent<Shotgun>().enabled = true;
+            GameObject.Find("Lantern_follower").GetComponent<Shotgun>().enabled = false;
 
             Destroy(gameObject);
         }
