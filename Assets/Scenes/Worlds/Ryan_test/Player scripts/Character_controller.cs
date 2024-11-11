@@ -12,7 +12,7 @@ public class Character_controller : MonoBehaviour
     public double MAX_STAMINA = 10;
     public static float GRAVITY = 9.8f;
 
-    private double stamina;
+    public double stamina;
     private int playerSpeed = 0;
     private bool isRunning = false;
 
