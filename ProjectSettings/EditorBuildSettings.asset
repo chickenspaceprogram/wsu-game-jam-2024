@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Worlds/Ty_folder/Ty_MenuScreen.unity
     guid: ffffa8506a3b0774fa85ddfa919f1916
   - enabled: 1
-    path: Assets/Scenes/Worlds/Ty_folder/Ty_Stage2.unity
-    guid: 9b1cd8fe90be31b4abf2062d00a49740
-  m_configObjects: {}
+    path: Assets/Scenes/MainGame.unity
+    guid: 65e427fd29d523842b178f1566cc61dd
+  - enabled: 1
+    path: Assets/Scenes/Worlds/Ryan_test/Ryans_world.unity
+    guid: 193d33c499168cc40bb46143e8289f11
+  - enabled: 1
+    path: Assets/Scenes/Worlds/chickenbranchprogram/MazeScene.unity
+    guid: 72891670ef3694e319a8b7002b5aefc7
+  - enabled: 1

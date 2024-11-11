@@ -13,7 +13,7 @@ public class HealthBar : MonoBehaviour
     // Start is called before the first frame update
 
     Health pl_h;
-    Camera cam;
+    public Camera cam;
     public Sprite hi;
 
 

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2769087114266406945
+--- !u!1 &1942127384654534527
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,50 +8,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8720256582395783650}
-  - component: {fileID: 3414738615029014424}
-  - component: {fileID: 8709194014801300048}
-  - component: {fileID: 2293923776279681592}
-  - component: {fileID: 4654512487705761339}
-  - component: {fileID: 6487784062902326424}
-  - component: {fileID: 8008296888827219950}
-  m_Layer: 0
-  m_Name: GunnerCritter 1
+  - component: {fileID: 6113731522987947274}
+  - component: {fileID: 1994772721754781853}
+  - component: {fileID: 3001783516896538542}
+  - component: {fileID: 3794221846281330547}
+  - component: {fileID: 5202687580025863870}
+  - component: {fileID: 8552154362419775797}
+  - component: {fileID: 141307682912074456}
+  m_Layer: 7
+  m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8720256582395783650
+--- !u!4 &6113731522987947274
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2769087114266406945}
+  m_GameObject: {fileID: 1942127384654534527}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.12, y: 1.95, z: 0.49099994}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -126.9, y: -13.36, z: 0.27113518}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3414738615029014424
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!33 &1994772721754781853
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2769087114266406945}
+  m_GameObject: {fileID: 1942127384654534527}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8709194014801300048
+--- !u!23 &3001783516896538542
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2769087114266406945}
+  m_GameObject: {fileID: 1942127384654534527}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -87,20 +87,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &2293923776279681592
+--- !u!136 &3794221846281330547
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2769087114266406945}
+  m_GameObject: {fileID: 1942127384654534527}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -110,70 +110,59 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!195 &4654512487705761339
-NavMeshAgent:
+--- !u!54 &5202687580025863870
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2769087114266406945}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 11
-  m_Acceleration: 15
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &6487784062902326424
+  m_GameObject: {fileID: 1942127384654534527}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &8552154362419775797
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2769087114266406945}
+  m_GameObject: {fileID: 1942127384654534527}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab99a6761b90a1347967a16f58bb42eb, type: 3}
+  m_Script: {fileID: 11500000, guid: d6150a5c1db36c54daa9cd3aefe3a609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 4654512487705761339}
-  player: {fileID: 0}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 8
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 256
-  walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 0
-  bullet_speed: 32
-  timeBetweenShots: 0.2
-  timeBetweenAttacks: 2
-  projectile: {fileID: 0}
-  sightRange: 7
-  attackRange: 4
-  playerInSightRange: 0
-  playerInAttackRange: 0
---- !u!114 &8008296888827219950
+  damage: 1
+  destroyOnHit: 1
+  parent: {fileID: 0}
+--- !u!114 &141307682912074456
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2769087114266406945}
+  m_GameObject: {fileID: 1942127384654534527}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e2580b000910bd4eaf15f8e6b42d830, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f9a758accfa48b46b5205948a45eb03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  dead: 0
-  currHealth: 0
+  destructable: 0
+  destroytime: 5
