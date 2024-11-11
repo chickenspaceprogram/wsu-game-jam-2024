@@ -18,7 +18,7 @@ public class Character_controller : MonoBehaviour
 
     private Rigidbody player_rb;
 
-    private Camera player_cam;
+    public Camera player_cam;
     public float lookSpeed = 2.0f;
     public float lookXLimit = 45.0f;
     float rotationX = 0;

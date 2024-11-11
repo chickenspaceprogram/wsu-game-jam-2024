@@ -182,15 +182,25 @@ public class DrawMaze : MonoBehaviour
     private void DispSouls(System.Random rng, int num_souls) {
         List<Vector3> souls_list = GetRandomPosList(rng, num_souls);
         List<Vector3>.Enumerator lenum = souls_list.GetEnumerator();
-        for (int i = 0; i < num_souls; ++i) {
+        for (int i = 0; i < num_souls - 1; ++i) {
             lenum.MoveNext();
             PrintSoul(lenum.Current);
         }
+        lenum.MoveNext();
+        PrintTelep(lenum.Current);
+
     }
 
     private void PrintSoul(Vector3 coords) {
         GameObject sp = Instantiate<GameObject>(GameObject.Find("Soul"));
         coords.y += 1;
         sp.gameObject.transform.position = coords;
+    }
+
+    private void PrintTelep(Vector3 coords)
+    {
+        GameObject sp = Instantiate<GameObject>(GameObject.Find("Teleporter"));
+        coords.y += 1;
+        sp.transform.position = coords;
     }
 }

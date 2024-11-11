@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/Worlds/Ty_folder/Ty_MenuScreen.unity
+    guid: ffffa8506a3b0774fa85ddfa919f1916
+  - enabled: 0
+    path: Assets/Scenes/MainGame.unity
+    guid: 65e427fd29d523842b178f1566cc61dd
   m_configObjects: {}

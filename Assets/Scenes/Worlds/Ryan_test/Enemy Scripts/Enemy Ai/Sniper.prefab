@@ -144,6 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab99a6761b90a1347967a16f58bb42eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flashed: 0
+  fl_time: 0
   agent: {fileID: 6858785048644029661}
   player: {fileID: 0}
   whatIsGround:
