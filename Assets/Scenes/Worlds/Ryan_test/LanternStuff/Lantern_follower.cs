@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.AI;
+//using UnityEditor.AI;
 using UnityEngine;
-using UnityEngine.AI;
+//using UnityEngine.AI;
 using UnityEngine.Experimental.GlobalIllumination;
 
 public class Lantern_follower : MonoBehaviour
