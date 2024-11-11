@@ -18,6 +18,3 @@ EditorBuildSettings:
     path: Assets/Scenes/Worlds/chickenbranchprogram/MazeScene.unity
     guid: 72891670ef3694e319a8b7002b5aefc7
   - enabled: 1
-    path: Assets/Scenes/Worlds/Ty_folder/Ty_Stage2.unity
-    guid: 9b1cd8fe90be31b4abf2062d00a49740
-  m_configObjects: {}
