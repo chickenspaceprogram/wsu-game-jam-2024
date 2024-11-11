@@ -17,7 +17,7 @@ public class Health : MonoBehaviour
     {
         currHealth = maxHealth;
         
-        if(this.gameObject == GameObject.Find("Player").gameObject)
+        if(gameObject == GameObject.Find("Player").gameObject)
         {
             healthBar = gameObject.GetComponent<HealthBar>();
         }
