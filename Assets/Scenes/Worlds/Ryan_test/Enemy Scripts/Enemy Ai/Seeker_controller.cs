@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class Seeker_controller : MonoBehaviour
 {
     // Start is called before the first frame update
+    public bool flashed = false;
+    float time = 0;
 
     public Transform player;
     public NavMeshAgent agent;
@@ -31,16 +33,29 @@ public class Seeker_controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        canSeePlayer = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-
-        if (!canSeePlayer)
+        if (!GetComponent<Health>().dead && !flashed)
         {
+            canSeePlayer = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
 
+            if (!canSeePlayer)
+            {
+
+            }
+            else
+            {
+                ChasePlayer();
+            }
         }
-        else
+        if (flashed == true)
         {
-            ChasePlayer();
+            time += Time.deltaTime;
+            if (time > 10)
+            {
+                flashed = false;
+            }
         }
+
+
     }
 
     private void ChasePlayer()
