@@ -189,7 +189,7 @@ public class DrawMaze : MonoBehaviour
     }
 
     private void PrintSoul(Vector3 coords) {
-        GameObject cube = GetCube();
-        cube.transform.position = coords;
+        GameObject sp = Instantiate<GameObject>(GameObject.Find("Soul"));
+        sp.gameObject.transform.position = coords;
     }
 }
