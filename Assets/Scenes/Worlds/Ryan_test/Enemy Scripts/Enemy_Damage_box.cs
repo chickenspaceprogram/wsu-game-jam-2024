@@ -10,7 +10,6 @@ public class Enemy_Damage_box : MonoBehaviour{
     public GameObject parent = null;
 
     void OnCollisionEnter(Collision collision) { 
-        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.name == "Player")
         {
             GameObject.Find("Player").GetComponent<Health>().TakeDamage(damage);

@@ -19,12 +19,10 @@ public class Flashbng : MonoBehaviour
         {
             if (other.gameObject.GetComponent<Gunner_enemy>() != null)
             {
-                Debug.Log("hi");
                 other.gameObject.GetComponent<Gunner_enemy>().flashed = true;
             }
             if (other.gameObject.GetComponent<Seeker_controller>() != null)
             {
-                Debug.Log("hi");
                 other.gameObject.GetComponent<Seeker_controller>().flashed = true;
             }
         }
